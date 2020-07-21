@@ -36,6 +36,13 @@ const getContrastRatio = (rgb1, rgb2) => {
 const isAACompliant = ratio => ratio >= 4.5;
 const isAAACompliant = ratio => ratio >= 7;
 
-const checkCompliance = ()
+const checkCompliance = (rgb1, rgb2) => {
+  const ratio = getContrastRatio(rgb1, rgb2);
+  return {
+    contrastRatio: ratio,
+    isAACompliant: isAACompliant(ratio),
+    isAAACompliant: isAAACompliant(ratio),
+  };
+}
 
-export {checkCompliance};
+export default checkCompliance;
